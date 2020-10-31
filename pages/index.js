@@ -1,3 +1,4 @@
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
     faChalkboardTeacher,
     faChevronRight,
@@ -27,22 +28,33 @@ const Banner = () => (
                         project, and dive into the fascinating world of
                         programming.
                     </p>
-                    <Link href="/">
-                        <a className="button is-medium is-primary has-shadow">
-                            <span>Register</span>
+                    <div className="buttons is-centered">
+                        <a
+                            href="https://discord.gg/SgGZrjK4H3"
+                            className="button is-medium has-shadow"
+                        >
+                            <span>Discord</span>
                             <span className="icon">
-                                <FontAwesomeIcon icon={faChevronRight} />
+                                <FontAwesomeIcon icon={faDiscord} />
                             </span>
                         </a>
-                    </Link>
+                        <Link href="/">
+                            <a className="button is-medium is-primary has-shadow">
+                                <span>Register</span>
+                                <span className="icon">
+                                    <FontAwesomeIcon icon={faChevronRight} />
+                                </span>
+                            </a>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 );
 
-const Section1 = () => (
-    <div className="section">
+const About = () => (
+    <div className="section" id="about">
         <div className="container">
             <p className="title is-3 has-text-centered mb-6">How it works</p>
             <div className="columns">
@@ -87,11 +99,73 @@ const Section1 = () => (
     </div>
 );
 
+const Question = ({ q, children }) => (
+    <div className="tile is-child">
+        <h4 className="title is-4 mb-2">{q}</h4>
+        <p className="content is-size-5">{children}</p>
+    </div>
+);
+
+const FAQ = () => (
+    <div className="section" id="faq">
+        <div className="container">
+            <p className="title is-3 has-text-centered mb-6">FAQ</p>
+
+            <div className="tile is-ancestor">
+                <div className="tile is-vertical is-parent">
+                    <Question q="Who can attend?">
+                        Any student aged 10-18 is eligible to participate in
+                        Code2K. Students do not need any prior experience—we
+                        have many workshops for you to learn from!
+                    </Question>
+
+                    <Question q="Can I come with a friend?">
+                        Yes! We encourage you to invite your friends to Code2K
+                        and work together on your project. However, you can
+                        still work alone if you would like.
+                    </Question>
+                </div>
+                <div className="tile is-vertical is-parent">
+                    <Question q="How will the event be held?">
+                        Code2K will be held live over Discord from December
+                        18–20, 2020. Please join our Discord server at{" "}
+                        <a href="https://discord.gg/SgGZrjK4H3">this link</a>.
+                    </Question>
+
+                    <Question q="How much does the event cost?">
+                        Thanks to our sponsors, our event is completely free for
+                        everyone to attend!
+                    </Question>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const Schedule = () => (
+    <div className="section" id="schedule">
+        <div className="container">
+            <p className="title is-3 has-text-centered mb-6">Schedule</p>
+        </div>
+    </div>
+);
+
+const Sponsors = () => (
+    <div className="section" id="sponsors">
+        <div className="container">
+            <p className="title is-3 has-text-centered mb-6">Sponsors</p>
+        </div>
+    </div>
+);
+
 const Index = () => {
     return (
         <>
             <Banner />
-            <Section1 />
+            <About />
+            <FAQ />
+            <Schedule />
+            <Sponsors />
         </>
     );
 };

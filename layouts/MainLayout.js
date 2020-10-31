@@ -12,10 +12,10 @@ const MainLayout = ({ children }) => {
                     </Navbar.Item>
                 }
             >
-                <Navbar.Item href="/">About</Navbar.Item>
-                <Navbar.Item href="/faq">FAQ</Navbar.Item>
-                <Navbar.Item href="/schedule">Schedule</Navbar.Item>
-                <Navbar.Item href="/sponsors">Sponsors</Navbar.Item>
+                <Navbar.Item href="#about">About</Navbar.Item>
+                <Navbar.Item href="#faq">FAQ</Navbar.Item>
+                <Navbar.Item href="#schedule">Schedule</Navbar.Item>
+                <Navbar.Item href="#sponsors">Sponsors</Navbar.Item>
             </Navbar>
 
             {children}
