@@ -41,14 +41,15 @@ const Banner = () => (
                                 <FontAwesomeIcon icon={faDiscord} />
                             </span>
                         </a>
-                        <Link href="/">
-                            <a className="button is-medium is-primary">
-                                <span>Register</span>
-                                <span className="icon">
-                                    <FontAwesomeIcon icon={faChevronRight} />
-                                </span>
-                            </a>
-                        </Link>
+                        <a
+                            href="https://www.eventbrite.com/e/code2k-tickets-127225654357"
+                            className="button is-medium is-primary"
+                        >
+                            <span>Register</span>
+                            <span className="icon">
+                                <FontAwesomeIcon icon={faChevronRight} />
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
