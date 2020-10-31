@@ -1,7 +1,10 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
+    faBookOpen,
     faChalkboardTeacher,
     faChevronRight,
+    faCode,
+    faCompass,
     faTrophy,
     faTv,
 } from "@fortawesome/free-solid-svg-icons";
@@ -31,7 +34,7 @@ const Banner = () => (
                     <div className="buttons is-centered">
                         <a
                             href="https://discord.gg/SgGZrjK4H3"
-                            className="button is-medium has-shadow"
+                            className="button is-medium"
                         >
                             <span>Discord</span>
                             <span className="icon">
@@ -39,7 +42,7 @@ const Banner = () => (
                             </span>
                         </a>
                         <Link href="/">
-                            <a className="button is-medium is-primary has-shadow">
+                            <a className="button is-medium is-primary">
                                 <span>Register</span>
                                 <span className="icon">
                                     <FontAwesomeIcon icon={faChevronRight} />
@@ -53,47 +56,38 @@ const Banner = () => (
     </div>
 );
 
+const AboutColumn = ({ icon, title, children }) => (
+    <div className="column">
+        <div
+            className="box has-shadow has-text-centered"
+            style={{ height: "100%" }}
+        >
+            <div className="card-content has-text-centered">
+                <FontAwesomeIcon icon={icon} size="3x" className="mb-5" />
+                <p className="title is-4">{title}</p>
+                <p>{children}</p>
+            </div>
+        </div>
+    </div>
+);
+
 const About = () => (
     <div className="section" id="about">
         <div className="container">
             <p className="title is-3 has-text-centered mb-6">How it works</p>
             <div className="columns">
-                <div className="column">
-                    <div className="box has-shadow has-text-centered">
-                        <div className="card-content has-text-centered">
-                            <FontAwesomeIcon
-                                icon={faChalkboardTeacher}
-                                size="3x"
-                                className="mb-5"
-                            />
-                            <p className="title is-4">Discover</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="box has-shadow">
-                        <div className="card-content has-text-centered">
-                            <FontAwesomeIcon
-                                icon={faTrophy}
-                                size="3x"
-                                className="mb-5"
-                            />
-                            <p className="title is-4">Learn</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="box has-shadow">
-                        <div className="card-content has-text-centered">
-                            <FontAwesomeIcon
-                                icon={faTv}
-                                size="3x"
-                                className="mb-5"
-                            />
-                            <p className="title is-4">Create</p>
-                        </div>
-                    </div>
-                </div>
+                <AboutColumn icon={faCompass} title="Discover">
+                    Discover all sorts of exciting concepts and technologies
+                    through our hour&#8209;long workshops
+                </AboutColumn>
+                <AboutColumn icon={faBookOpen} title="Learn">
+                    Learn from our instructors and follow our guides to deep
+                    dive into your chosen topic.
+                </AboutColumn>
+                <AboutColumn icon={faCode} title="Create">
+                    Create a project of your own using your new skills, with the
+                    help of our mentors along the way.
+                </AboutColumn>
             </div>
         </div>
     </div>
@@ -101,7 +95,7 @@ const About = () => (
 
 const Question = ({ q, children }) => (
     <div className="tile is-child">
-        <h4 className="title is-4 mb-2">{q}</h4>
+        <p className="title is-4 mb-2">{q}</p>
         <p className="content is-size-5">{children}</p>
     </div>
 );
@@ -142,18 +136,104 @@ const FAQ = () => (
     </div>
 );
 
+const ScheduleTable = ({ title, children }) => (
+    <>
+        <p className="title is-5">{title}</p>
+        <table className="table is-bordered is-fullwidth is-transparent">
+            <tbody>{children}</tbody>
+        </table>
+    </>
+);
+
+const ScheduleItem = ({ time, children }) => (
+    <tr>
+        <td style={{ width: "40%" }}>{time}</td>
+        <td>{children}</td>
+    </tr>
+);
+
 const Schedule = () => (
     <div className="section" id="schedule">
         <div className="container">
-            <p className="title is-3 has-text-centered mb-6">Schedule</p>
+            <p className="title is-3 has-text-centered">Schedule</p>
+
+            <ScheduleTable title="Friday, December 18 — Kickoff">
+                <ScheduleItem time="5:00 – 5:30 PM">
+                    Opening Ceremony
+                </ScheduleItem>
+                <ScheduleItem time="5:30 – 6:30 PM">TBD</ScheduleItem>
+                <ScheduleItem time="6:30 – 7:30 PM">
+                    Workshop: Introduction to Python
+                </ScheduleItem>
+            </ScheduleTable>
+
+            <ScheduleTable title="Saturday, December 19 — Workshop day!">
+                <ScheduleItem time="9:00 – 9:30 AM">Day 1 Opening</ScheduleItem>
+                <ScheduleItem time="10:00 – 11:00 AM">
+                    Workshop: Making Text-based Games with Python
+                </ScheduleItem>
+                <ScheduleItem time="11:00 AM – 12:00 PM">
+                    Workshop: Making Discord Bots with Python
+                </ScheduleItem>
+                <ScheduleItem time="12:00 – 1:00 PM">Lunch Break</ScheduleItem>
+                <ScheduleItem time="1:00 – 2:00 PM">
+                    Workshop: Teachable Machine
+                </ScheduleItem>
+                <ScheduleItem time="2:00 – 3:00 PM">
+                    Workshop: Basic 3D Modeling
+                </ScheduleItem>
+                <ScheduleItem time="3:00 – 4:00 PM">
+                    Workshop: Game Design with Unity
+                </ScheduleItem>
+                <ScheduleItem time="4:00 – 5:00 PM">
+                    Workshop: Bot Battles
+                </ScheduleItem>
+                <ScheduleItem time="5:00 – 5:30 PM">Day 1 Wrap Up</ScheduleItem>
+            </ScheduleTable>
+
+            <ScheduleTable title="Sunday, December 20">
+                <ScheduleItem time="9:00 – 9:30 AM">Day 2 Opening</ScheduleItem>
+                <ScheduleItem time="9:30 AM – 12:00 PM">
+                    Morning Worksession &amp; Mentorship – Activities TBD
+                </ScheduleItem>
+                <ScheduleItem time="12:00 – 1:00 PM">Lunch Break</ScheduleItem>
+                <ScheduleItem time="1:00 – 3:00 PM">
+                    Afternoon Worksession &amp; Mentorship
+                </ScheduleItem>
+                <ScheduleItem time="3:00 – 5:00 PM">
+                    Closing Ceremony
+                </ScheduleItem>
+            </ScheduleTable>
         </div>
     </div>
 );
 
 const Sponsors = () => (
     <div className="section" id="sponsors">
-        <div className="container">
-            <p className="title is-3 has-text-centered mb-6">Sponsors</p>
+        <div className="container has-text-centered">
+            <p className="title is-3">Sponsors</p>
+            <p className="content">
+                This section will be updated soon with our sponsors.
+                <br />
+                Want to sponsor us? Send us an email at{" "}
+                <a href="sponsorship@code2k.org">sponsorship@code2k.org</a>.
+            </p>
+            <a href="/sponsorship.pdf" className="button">
+                Sponsorship Prospectus
+            </a>
+        </div>
+    </div>
+);
+
+const Footer = () => (
+    <div className="section">
+        <div className="container has-text-centered">
+            <p className="content">
+                Code2K is a program of the{" "}
+                <a href="https://project-code.org">Project Code Foundation</a>,
+                a 501(c)(3) nonprofit.
+            </p>
+            <img src={require("../assets/pcf_logo.png")} width="200" />
         </div>
     </div>
 );
@@ -166,6 +246,7 @@ const Index = () => {
             <FAQ />
             <Schedule />
             <Sponsors />
+            <Footer />
         </>
     );
 };
