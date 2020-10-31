@@ -217,7 +217,10 @@ const Sponsors = () => (
                 This section will be updated soon with our sponsors.
                 <br />
                 Want to sponsor us? Send us an email at{" "}
-                <a href="sponsorship@code2k.org">sponsorship@code2k.org</a>.
+                <a href="mailto:sponsorship@code2k.org">
+                    sponsorship@code2k.org
+                </a>
+                .
             </p>
             <a href="/sponsorship.pdf" className="button">
                 Sponsorship Prospectus
