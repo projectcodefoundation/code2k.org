@@ -22,6 +22,11 @@ const App = ({ Component, pageProps }) => {
             />
             <Head>
                 <link
+                    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+                    rel="stylesheet"
+                />
+
+                <link
                     rel="apple-touch-icon"
                     sizes="180x180"
                     href="/apple-touch-icon.png"
