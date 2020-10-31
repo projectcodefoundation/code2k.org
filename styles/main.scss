@@ -1,0 +1,10 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+$fullhd-enabled: false;
+$navbar-height: 5rem;
+$navbar-item-active-color: $blue;
+$family-monospace: "Space Mono", monospace;
+$primary: #e53935;
+
+@import "~bulma/bulma";
+@import "globals.scss";
