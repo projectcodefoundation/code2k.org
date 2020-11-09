@@ -21,7 +21,7 @@ const Banner = () => (
                         Discover. Learn. Create.
                     </p>
                     <p className="subtitle is-4 has-text-centered">
-                        December 18–20, 2020
+                        January 8–10, 2020
                     </p>
                     <p className="subtitle is-4 is-family-primary">
                         Code2K is a weekend of CS discovery. It's a
@@ -122,8 +122,8 @@ const FAQ = () => (
                 </div>
                 <div className="tile is-vertical is-parent">
                     <Question q="How will the event be held?">
-                        Code2K will be held live over Discord from December
-                        18–20, 2020. Please join our Discord server at{" "}
+                        Code2K will be held live over Discord from January 8–10,
+                        2020. Please join our Discord server at{" "}
                         <a href="https://discord.gg/SgGZrjK4H3">this link</a>.
                     </Question>
 
@@ -156,7 +156,7 @@ const ScheduleItem = ({ time, children }) => (
 const Schedule = () => (
     <div className="section" id="schedule">
         <div className="container">
-            <p className="title is-3 has-text-centered">Schedule</p>
+            <p className="title is-3 has-text-centered">Tentative Schedule</p>
 
             <ScheduleTable title="Friday, December 18 — Kickoff">
                 <ScheduleItem time="5:00 – 5:30 PM">
