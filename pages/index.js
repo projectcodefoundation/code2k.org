@@ -90,6 +90,16 @@ const About = () => (
                     help of our mentors along the way.
                 </AboutColumn>
             </div>
+            <div className="columns">
+                <div className="column is-10-desktop is-offset-1-desktop">
+                    <p className="content is-size-5 has-text-centered mt-5">
+                        Or, if you already know how to code, feel free to skip
+                        the workshops and get advice from our experienced
+                        mentors, or use our sponsor-provided resources to create
+                        a fresh project!
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 );
@@ -119,6 +129,13 @@ const FAQ = () => (
                         and work together on your project. However, you can
                         still work alone if you would like.
                     </Question>
+
+                    <Question q="I can't code. Can I come?">
+                        Of course! Saturday consists of an entire day of
+                        exciting workshops, where our instructors will guide you
+                        through basic programming fundamentals. Check out our
+                        schedule for more details.
+                    </Question>
                 </div>
                 <div className="tile is-vertical is-parent">
                     <Question q="How will the event be held?">
@@ -130,6 +147,13 @@ const FAQ = () => (
                     <Question q="How much does the event cost?">
                         Thanks to our sponsors, our event is completely free for
                         everyone to attend!
+                    </Question>
+
+                    <Question q="What if I already know how to code?">
+                        The workshops aren't mandatory, and we've got plenty for
+                        you if you're more advanced! Join a speaker event, talk
+                        with our mentors, or use some sponsor-provided tools and
+                        APIs.
                     </Question>
                 </div>
             </div>
