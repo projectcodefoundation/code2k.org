@@ -182,7 +182,7 @@ const Schedule = () => (
         <div className="container">
             <p className="title is-3 has-text-centered">Tentative Schedule</p>
 
-            <ScheduleTable title="Friday, December 18 — Kickoff">
+            <ScheduleTable title="Friday, January 8 — Kickoff">
                 <ScheduleItem time="5:00 – 5:30 PM">
                     Opening Ceremony
                 </ScheduleItem>
@@ -192,7 +192,7 @@ const Schedule = () => (
                 </ScheduleItem>
             </ScheduleTable>
 
-            <ScheduleTable title="Saturday, December 19 — Workshop day!">
+            <ScheduleTable title="Saturday, January 9 — Workshop day!">
                 <ScheduleItem time="9:00 – 9:30 AM">Day 1 Opening</ScheduleItem>
                 <ScheduleItem time="10:00 – 11:00 AM">
                     Workshop: Making Text-based Games with Python
@@ -216,7 +216,7 @@ const Schedule = () => (
                 <ScheduleItem time="5:00 – 5:30 PM">Day 1 Wrap Up</ScheduleItem>
             </ScheduleTable>
 
-            <ScheduleTable title="Sunday, December 20">
+            <ScheduleTable title="Sunday, January 10">
                 <ScheduleItem time="9:00 – 9:30 AM">Day 2 Opening</ScheduleItem>
                 <ScheduleItem time="9:30 AM – 12:00 PM">
                     Morning Worksession &amp; Mentorship – Activities TBD
