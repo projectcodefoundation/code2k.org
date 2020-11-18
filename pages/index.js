@@ -1,16 +1,11 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
     faBookOpen,
-    faChalkboardTeacher,
     faChevronRight,
     faCode,
     faCompass,
-    faTrophy,
-    faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classNames from "classnames";
-import Link from "next/link";
 
 const Banner = () => (
     <div className="section">
@@ -51,6 +46,9 @@ const Banner = () => (
                             </span>
                         </a>
                     </div>
+                    <a href="https://forms.gle/zrQqRLa7YJq16PNN8">
+                        Programming wizard? Sign up to mentor
+                    </a>
                 </div>
             </div>
         </div>
