@@ -16,7 +16,7 @@ const Banner = () => (
                         Discover. Learn. Create.
                     </p>
                     <p className="subtitle is-4 has-text-centered">
-                        January 8–10, 2020
+                        January 8–10, 2021
                     </p>
                     <p className="subtitle is-4 is-family-primary">
                         Code2K is a weekend of CS discovery. It's a
@@ -138,7 +138,7 @@ const FAQ = () => (
                 <div className="tile is-vertical is-parent">
                     <Question q="How will the event be held?">
                         Code2K will be held live over Discord from January 8–10,
-                        2020. Please join our Discord server at{" "}
+                        2021. Please join our Discord server at{" "}
                         <a href="https://discord.gg/SgGZrjK4H3">this link</a>.
                     </Question>
 
