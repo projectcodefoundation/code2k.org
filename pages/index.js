@@ -235,7 +235,7 @@ const Sponsors = () => (
     <div className="section" id="sponsors">
         <div className="container has-text-centered">
             <p className="title is-3">Sponsors</p>
-            <p className="content">
+            <p className="content mb-6">
                 This section will be updated soon with our sponsors.
                 <br />
                 Want to sponsor us? Send us an email at{" "}
@@ -244,6 +244,9 @@ const Sponsors = () => (
                 </a>
                 .
             </p>
+            <div className="mb-6">
+                <img src={require("../assets/sponsors/balsamiq.png")} />
+            </div>
             <a href="/sponsorship.pdf" className="button">
                 Sponsorship Prospectus
             </a>
