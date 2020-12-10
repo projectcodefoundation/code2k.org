@@ -244,8 +244,19 @@ const Sponsors = () => (
                 </a>
                 .
             </p>
-            <div className="mb-6">
-                <img src={require("../assets/sponsors/balsamiq.png")} />
+            <div
+                className="mb-6"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <img
+                    src={require("../assets/sponsors/balsamiq.svg")}
+                    width={300}
+                />
+                <img src={require("../assets/sponsors/aops.png")} width={300} />
             </div>
             <a href="/sponsorship.pdf" className="button">
                 Sponsorship Prospectus
