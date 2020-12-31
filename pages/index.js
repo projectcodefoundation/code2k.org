@@ -212,7 +212,7 @@ const Schedule = () => (
                     Networking
                 </ScheduleItem>
                 <ScheduleItem time="6:00 – 8:00 PM">
-                    <ScheduleWorkshop title="Introduction to Python (important)">
+                    <ScheduleWorkshop title="Introduction to Python (prerequisite for many Saturday workshops)">
                         Python is a versatile and powerful programming language
                         used everywhere from websites to machine learning. Known
                         for its English-like syntax, it is also easy for
@@ -234,7 +234,7 @@ const Schedule = () => (
                         <ScheduleWorkshop
                             title="Making Discord Bots with Python"
                             grades="7–9"
-                            prereqs="Learned Python before the event; know basics like data types, operators, functions, imports; comfortable with working on medium projects"
+                            prereqs="Learned Python before the event; know basics like data types, operators, functions, imports; comfortable with working on projects"
                         >
                             Already know Python and want to create something
                             cool? In this workshop, you'll learn how to use the
@@ -249,17 +249,17 @@ const Schedule = () => (
                     }
                     second={
                         <ScheduleWorkshop
-                            title="Block Programming with Scratch"
+                            title="Website Design with HTML and CSS"
                             grades="Any"
                         >
-                            Have you ever wanted to create your own game with
-                            graphics? Scratch is a beginner-friendly block
-                            programming language that does not require any
-                            typing, making it super easy to learn! During this
-                            workshop we will walk you through the creation of an
-                            example game and then you will be able to make your
-                            own unique game afterwards with the help of our
-                            mentors.
+                            Each day, millions of people use the Internet to
+                            access all sorts of different websites. All of these
+                            websites have a foundation built from HTML. In this
+                            workshop, you will learn how to code in HTML to
+                            design your own basic webpage! We’ll first guide you
+                            through the process of creating a simple website,
+                            and provide you with the tools to make your own
+                            website totally unique and yours.
                         </ScheduleWorkshop>
                     }
                 />
@@ -290,17 +290,17 @@ const Schedule = () => (
                     }
                     second={
                         <ScheduleWorkshop
-                            title="Website Design with HTML and CSS"
+                            title="Block Programming with Scratch"
                             grades="Any"
                         >
-                            Each day, millions of people use the Internet to
-                            access all sorts of different websites. All of these
-                            websites have a foundation built from HTML. In this
-                            workshop, you will learn how to code in HTML to
-                            design your own basic webpage! We’ll first guide you
-                            through the process of creating a simple website,
-                            and provide you with the tools to make your own
-                            website totally unique and yours.
+                            Have you ever wanted to create your own game with
+                            graphics? Scratch is a beginner-friendly block
+                            programming language that does not require any
+                            typing, making it super easy to learn! During this
+                            workshop we will walk you through the creation of an
+                            example game and then you will be able to make your
+                            own unique game afterwards with the help of our
+                            mentors.
                         </ScheduleWorkshop>
                     }
                 />
@@ -372,6 +372,8 @@ const Schedule = () => (
                     Presentations &amp; Closing Ceremony
                 </ScheduleItem>
             </ScheduleTable>
+
+            <p>* - This workshop has a prerequisite. Hover for more info.</p>
         </div>
     </div>
 );
