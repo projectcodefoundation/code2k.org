@@ -347,8 +347,8 @@ const Schedule = () => (
                             <br />
                             <br />
                             Please download Blender at{" "}
-                            <a href="https://www.blender.org/">
-                                https://www.blender.org/
+                            <a href="https://www.blender.org/download/">
+                                https://www.blender.org/download/
                             </a>
                             .
                         </ScheduleWorkshop>
