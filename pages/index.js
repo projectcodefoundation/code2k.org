@@ -203,6 +203,10 @@ const Schedule = () => (
         <div className="container">
             <p className="title is-3 has-text-centered">Tentative Schedule</p>
 
+            <p className="content">
+                * – This workshop has a prerequisite. Hover for more info.
+            </p>
+
             <ScheduleTable title="Friday, January 8 — Kickoff">
                 <ScheduleItem time="5:00 – 5:30 PM">
                     Opening Ceremony
@@ -369,8 +373,6 @@ const Schedule = () => (
                     Presentations &amp; Closing Ceremony
                 </ScheduleItem>
             </ScheduleTable>
-
-            <p>* - This workshop has a prerequisite. Hover for more info.</p>
         </div>
     </div>
 );
