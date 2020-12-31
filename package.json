@@ -13,6 +13,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.14.0",
         "@fortawesome/react-fontawesome": "^0.1.11",
         "bulma": "^0.9.0",
+        "bulma-popover": "^1.0.3",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-optipng": "^8.0.0",
         "next": "^10.0.0",

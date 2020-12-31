@@ -168,11 +168,34 @@ const ScheduleTable = ({ title, children }) => (
     </>
 );
 
-const ScheduleItem = ({ time, children }) => (
+const ScheduleItem = ({ time, first, second, children }) => (
     <tr>
         <td style={{ width: "40%" }}>{time}</td>
-        <td>{children}</td>
+        <td colSpan={second ? 1 : 2}>{first ?? children}</td>
+        {second && <td>{second}</td>}
     </tr>
+);
+
+const ScheduleWorkshop = ({ title, children, prereqs, grades }) => (
+    <div className="popover">
+        <a className="popover-trigger">
+            {title}
+            {prereqs && " *"}
+        </a>
+        <div className="popover-content content">
+            <p>{children}</p>
+            {grades && (
+                <p>
+                    <b>Recommended Grade Levels:</b> {grades}
+                </p>
+            )}
+            {prereqs && (
+                <p>
+                    <b>Prerequisites:</b> {prereqs}
+                </p>
+            )}
+        </div>
+    </div>
 );
 
 const Schedule = () => (
@@ -184,47 +207,169 @@ const Schedule = () => (
                 <ScheduleItem time="5:00 – 5:30 PM">
                     Opening Ceremony
                 </ScheduleItem>
-                <ScheduleItem time="5:30 – 6:30 PM">TBD</ScheduleItem>
-                <ScheduleItem time="6:30 – 7:30 PM">
-                    Workshop: Introduction to Python
+                <ScheduleItem time="5:30 – 6:00 PM">
+                    Talk by Mr. Howie Xu: VP AI/ML Zscalar, Founder VMware
+                    Networking
+                </ScheduleItem>
+                <ScheduleItem time="6:00 – 8:00 PM">
+                    <ScheduleWorkshop title="Introduction to Python (important)">
+                        Python is a versatile and powerful programming language
+                        used everywhere from websites to machine learning. Known
+                        for its English-like syntax, it is also easy for
+                        beginners to learn. In this workshop, we'll go over the
+                        basics of the language and make some simple programs.
+                        <br />
+                        <br />
+                        This workshop (or an equivalent Python course) is
+                        required for some of the workshops on Saturday.
+                    </ScheduleWorkshop>
                 </ScheduleItem>
             </ScheduleTable>
 
             <ScheduleTable title="Saturday, January 9 — Workshop day!">
                 <ScheduleItem time="9:00 – 9:30 AM">Day 1 Opening</ScheduleItem>
-                <ScheduleItem time="10:00 – 11:00 AM">
-                    Workshop: Making Text-based Games with Python
-                </ScheduleItem>
-                <ScheduleItem time="11:00 AM – 12:00 PM">
-                    Workshop: Making Discord Bots with Python
-                </ScheduleItem>
+                <ScheduleItem
+                    time="10:00 AM – 12:00 PM"
+                    first={
+                        <ScheduleWorkshop
+                            title="Making Discord Bots with Python"
+                            grades="7–9"
+                            prereqs="Learned Python before the event; know basics like data types, operators, functions, imports; comfortable with working on medium projects"
+                        >
+                            Already know Python and want to create something
+                            cool? In this workshop, you'll learn how to use the
+                            discord.py library to make bots for the chat
+                            platform Discord. We'll start with the basics and
+                            progress to make a simple game. You’ll also learn
+                            how to use the bot to create channels, kick or ban
+                            members, and more. Afterwards, our mentors will
+                            guide you to make your very own Discord bot that can
+                            do whatever you want.
+                        </ScheduleWorkshop>
+                    }
+                    second={
+                        <ScheduleWorkshop
+                            title="Block Programming with Scratch"
+                            grades="Any"
+                        >
+                            Have you ever wanted to create your own game with
+                            graphics? Scratch is a beginner-friendly block
+                            programming language that does not require any
+                            typing, making it super easy to learn! During this
+                            workshop we will walk you through the creation of an
+                            example game and then you will be able to make your
+                            own unique game afterwards with the help of our
+                            mentors.
+                        </ScheduleWorkshop>
+                    }
+                />
                 <ScheduleItem time="12:00 – 1:00 PM">Lunch Break</ScheduleItem>
-                <ScheduleItem time="1:00 – 2:00 PM">
-                    Workshop: Teachable Machine
-                </ScheduleItem>
-                <ScheduleItem time="2:00 – 3:00 PM">
-                    Workshop: Basic 3D Modeling
-                </ScheduleItem>
-                <ScheduleItem time="3:00 – 4:00 PM">
-                    Workshop: Game Design with Unity
-                </ScheduleItem>
-                <ScheduleItem time="4:00 – 5:00 PM">
-                    Workshop: Bot Battles
-                </ScheduleItem>
-                <ScheduleItem time="5:00 – 5:30 PM">Day 1 Wrap Up</ScheduleItem>
+                <ScheduleItem
+                    time="1:00 – 3:00 PM"
+                    first={
+                        <ScheduleWorkshop
+                            title="Teachable Machine"
+                            grades="7–9"
+                            prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
+                        >
+                            These days, lots of companies use buzzwords like
+                            "artificial intelligence" and "machine learning" to
+                            promote themselves, but have you ever wondered what
+                            exactly machine learning is? In this workshop, you
+                            will harness the power of machine learning by using{" "}
+                            <a href="https://teachablemachine.withgoogle.com/">
+                                Teachable Machine
+                            </a>{" "}
+                            to recognize images, sound, and more! During this
+                            workshop, we will walk through an example of an app
+                            which can detect when, a user is slouching through
+                            their webcam. Afterwards, our mentors will help
+                            guide you through making your own unique application
+                            of machine learning!
+                        </ScheduleWorkshop>
+                    }
+                    second={
+                        <ScheduleWorkshop
+                            title="Website Design with HTML and CSS"
+                            grades="Any"
+                        >
+                            Each day, millions of people use the Internet to
+                            access all sorts of different websites. All of these
+                            websites have a foundation built from HTML. In this
+                            workshop, you will learn how to code in HTML to
+                            design your own basic webpage! We’ll first guide you
+                            through the process of creating a simple website,
+                            and provide you with the tools to make your own
+                            website totally unique and yours.
+                        </ScheduleWorkshop>
+                    }
+                />
+                <ScheduleItem
+                    time="3:30 – 5:30 PM"
+                    first={
+                        <ScheduleWorkshop
+                            title="Making Text-based Games with Python"
+                            grades="6-8"
+                            prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
+                        >
+                            In this workshop, you will be able to make your own
+                            text-based choose-your-own-adventure style game! Our
+                            mentors will guide you through the process of making
+                            your own text-based games and teach you how to make
+                            features such as:
+                            <ul>
+                                <li>
+                                    Allowing the player to make choices to
+                                    advance your storyline
+                                </li>
+                                <li>Keeping track of the player’s health</li>
+                                <li>Creating a simple inventory system</li>
+                            </ul>
+                        </ScheduleWorkshop>
+                    }
+                    second={
+                        <ScheduleWorkshop
+                            title="Basic 3D Modeling"
+                            grades="7–9"
+                        >
+                            In this workshop, you will learn how to create your
+                            own 3D object using the 3D modeling tool Blender.
+                            You will then be able to 3D print your model and
+                            have it be shipped to you! These models may also be
+                            used in animations or games. During this workshop,
+                            we will walk through constructing a basic model that
+                            introduces the features of Blender. Afterwards, our
+                            mentors will help you through the process of making
+                            your own model!
+                            <br />
+                            <br />
+                            Please download Blender at{" "}
+                            <a href="https://www.blender.org/">
+                                https://www.blender.org/
+                            </a>
+                            .
+                        </ScheduleWorkshop>
+                    }
+                />
             </ScheduleTable>
 
             <ScheduleTable title="Sunday, January 10">
                 <ScheduleItem time="9:00 – 9:30 AM">Day 2 Opening</ScheduleItem>
                 <ScheduleItem time="9:30 AM – 12:00 PM">
-                    Morning Worksession &amp; Mentorship – Activities TBD
+                    <ScheduleWorkshop title="Morning Worksession &amp; Mentorship">
+                        Time to work on your own project! We'll be there to give
+                        you ideas and guidance along the way.
+                    </ScheduleWorkshop>
                 </ScheduleItem>
                 <ScheduleItem time="12:00 – 1:00 PM">Lunch Break</ScheduleItem>
                 <ScheduleItem time="1:00 – 3:00 PM">
-                    Afternoon Worksession &amp; Mentorship
+                    <ScheduleWorkshop title="Afternoon Worksession &amp; Mentorship">
+                        Continue working on your own project! We'll be there to
+                        give you ideas and guidance along the way.
+                    </ScheduleWorkshop>
                 </ScheduleItem>
                 <ScheduleItem time="3:00 – 5:00 PM">
-                    Closing Ceremony
+                    Presentations &amp; Closing Ceremony
                 </ScheduleItem>
             </ScheduleTable>
         </div>
