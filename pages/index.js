@@ -268,6 +268,42 @@ const Schedule = () => (
                     time="1:00 – 3:00 PM"
                     first={
                         <ScheduleWorkshop
+                            title="Making Text-based Games with Python"
+                            grades="6-8"
+                            prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
+                        >
+                            In this workshop, you will be able to make your own
+                            text-based choose-your-own-adventure style game! Our
+                            mentors will guide you through the process of making
+                            your own text-based games and teach you how to make
+                            features such as:
+                            <ul>
+                                <li>
+                                    Allowing the player to make choices to
+                                    advance your storyline
+                                </li>
+                                <li>Keeping track of the player’s health</li>
+                                <li>Creating a simple inventory system</li>
+                            </ul>
+                        </ScheduleWorkshop>
+                    }
+                    second={
+                        <ScheduleWorkshop title="Scratch Games" grades="Any">
+                            Have you ever wanted to create your own game with
+                            graphics? Scratch is a beginner-friendly block
+                            programming language that does not require any
+                            typing, making it super easy to learn! During this
+                            workshop we will walk you through the creation of an
+                            example game and then you will be able to make your
+                            own unique game afterwards with the help of our
+                            mentors.
+                        </ScheduleWorkshop>
+                    }
+                />
+                <ScheduleItem
+                    time="3:30 – 5:30 PM"
+                    first={
+                        <ScheduleWorkshop
                             title="Teachable Machine"
                             grades="7–9"
                             prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
@@ -286,45 +322,6 @@ const Schedule = () => (
                             their webcam. Afterwards, our mentors will help
                             guide you through making your own unique application
                             of machine learning!
-                        </ScheduleWorkshop>
-                    }
-                    second={
-                        <ScheduleWorkshop
-                            title="Block Programming with Scratch"
-                            grades="Any"
-                        >
-                            Have you ever wanted to create your own game with
-                            graphics? Scratch is a beginner-friendly block
-                            programming language that does not require any
-                            typing, making it super easy to learn! During this
-                            workshop we will walk you through the creation of an
-                            example game and then you will be able to make your
-                            own unique game afterwards with the help of our
-                            mentors.
-                        </ScheduleWorkshop>
-                    }
-                />
-                <ScheduleItem
-                    time="3:30 – 5:30 PM"
-                    first={
-                        <ScheduleWorkshop
-                            title="Making Text-based Games with Python"
-                            grades="6-8"
-                            prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
-                        >
-                            In this workshop, you will be able to make your own
-                            text-based choose-your-own-adventure style game! Our
-                            mentors will guide you through the process of making
-                            your own text-based games and teach you how to make
-                            features such as:
-                            <ul>
-                                <li>
-                                    Allowing the player to make choices to
-                                    advance your storyline
-                                </li>
-                                <li>Keeping track of the player’s health</li>
-                                <li>Creating a simple inventory system</li>
-                            </ul>
                         </ScheduleWorkshop>
                     }
                     second={
