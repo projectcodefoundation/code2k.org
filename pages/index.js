@@ -201,7 +201,9 @@ const ScheduleWorkshop = ({ title, children, prereqs, grades }) => (
 const Schedule = () => (
     <div className="section" id="schedule">
         <div className="container">
-            <p className="title is-3 has-text-centered">Tentative Schedule</p>
+            <p className="title is-3 has-text-centered">
+                Schedule (Pacific Time)
+            </p>
 
             <p className="content">
                 * – This workshop has a prerequisite. Hover for more info.
