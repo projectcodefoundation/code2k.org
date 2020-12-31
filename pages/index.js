@@ -212,7 +212,7 @@ const Schedule = () => (
                     Opening Ceremony
                 </ScheduleItem>
                 <ScheduleItem time="5:30 – 6:00 PM">
-                    Talk by Mr. Howie Xu: VP AI/ML Zscalar, Founder VMware
+                    Talk by Mr. Howie Xu: VP AI/ML Zscaler, Founder VMware
                     Networking
                 </ScheduleItem>
                 <ScheduleItem time="6:00 – 8:00 PM">
