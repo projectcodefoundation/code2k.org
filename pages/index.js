@@ -6,6 +6,7 @@ import {
     faCompass,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 const Banner = () => (
     <div className="section">
@@ -150,8 +151,14 @@ const FAQ = () => (
                     <Question q="What if I already know how to code?">
                         The workshops aren't mandatory, and we've got plenty for
                         you if you're more advanced! Join a speaker event, talk
-                        with our mentors, or use some sponsor-provided tools and
-                        APIs.
+                        with our mentors, and work on your own project.
+                    </Question>
+
+                    <Question q="Can I present my creation?">
+                        Yes! We will have a first-come-first-serve form link for
+                        presentations on Sunday. Due to time constraints, we may
+                        need to close off the form if too many people sign up,
+                        so we encourage you to sign up earlier in the day.
                     </Question>
                 </div>
             </div>
@@ -176,29 +183,23 @@ const ScheduleItem = ({ time, first, second, children }) => (
     </tr>
 );
 
-const ScheduleWorkshop = ({ title, children, prereqs, grades }) => (
-    <div className="popover">
-        <a className="popover-trigger">
-            {title}
-            {prereqs && " *"}
-        </a>
-        <div className="popover-content content">
-            <p>{children}</p>
-            {grades && (
-                <p>
-                    <b>Recommended Grade Levels:</b> {grades}
-                </p>
-            )}
-            {prereqs && (
-                <p>
-                    <b>Prerequisites:</b> {prereqs}
-                </p>
-            )}
-        </div>
-    </div>
+const ScheduleWorkshop = ({ title, children, prereqs, grades, openModal }) => (
+    <a
+        onClick={() =>
+            openModal({
+                title,
+                grades,
+                prereqs,
+                description: children,
+            })
+        }
+    >
+        {title}
+        {prereqs && " *"}
+    </a>
 );
 
-const Schedule = () => (
+const Schedule = ({ openModal }) => (
     <div className="section" id="schedule">
         <div className="container">
             <p className="title is-3 has-text-centered">
@@ -206,7 +207,11 @@ const Schedule = () => (
             </p>
 
             <p className="content">
-                * – This workshop has a prerequisite. Hover for more info.
+                * – This workshop has a prerequisite. Please check the
+                description before attending.
+                <br />
+                ** – This workshop is very important, and a prerequisite for
+                many Saturday workshops!
             </p>
 
             <ScheduleTable title="Friday, January 8 — Kickoff">
@@ -218,7 +223,10 @@ const Schedule = () => (
                     Networking
                 </ScheduleItem>
                 <ScheduleItem time="6:00 – 8:00 PM">
-                    <ScheduleWorkshop title="Introduction to Python (prerequisite for many Saturday workshops)">
+                    <ScheduleWorkshop
+                        title="Introduction to Python **"
+                        openModal={openModal}
+                    >
                         Python is a versatile and powerful programming language
                         used everywhere from websites to machine learning. Known
                         for its English-like syntax, it is also easy for
@@ -227,7 +235,9 @@ const Schedule = () => (
                         <br />
                         <br />
                         This workshop (or an equivalent Python course) is
-                        required for some of the workshops on Saturday.
+                        required for some of the workshops on Saturday. We
+                        highly advise you attend this workshop as it'll greatly
+                        expand your options.
                     </ScheduleWorkshop>
                 </ScheduleItem>
             </ScheduleTable>
@@ -241,6 +251,7 @@ const Schedule = () => (
                             title="Making Discord Bots with Python"
                             grades="7–9"
                             prereqs="Learned Python before the event; know basics like data types, operators, functions, imports; comfortable with working on projects"
+                            openModal={openModal}
                         >
                             Already know Python and want to create something
                             cool? In this workshop, you'll learn how to use the
@@ -257,6 +268,7 @@ const Schedule = () => (
                         <ScheduleWorkshop
                             title="Website Design with HTML and CSS"
                             grades="Any"
+                            openModal={openModal}
                         >
                             Each day, millions of people use the Internet to
                             access all sorts of different websites. All of these
@@ -277,6 +289,7 @@ const Schedule = () => (
                             title="Making Text-based Games with Python"
                             grades="6-8"
                             prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
+                            openModal={openModal}
                         >
                             In this workshop, you will be able to make your own
                             text-based choose-your-own-adventure style game! Our
@@ -294,7 +307,11 @@ const Schedule = () => (
                         </ScheduleWorkshop>
                     }
                     second={
-                        <ScheduleWorkshop title="Scratch Games" grades="Any">
+                        <ScheduleWorkshop
+                            title="Scratch Games"
+                            grades="Any"
+                            openModal={openModal}
+                        >
                             Have you ever wanted to create your own game with
                             graphics? Scratch is a beginner-friendly block
                             programming language that does not require any
@@ -313,6 +330,7 @@ const Schedule = () => (
                             title="Teachable Machine"
                             grades="7–9"
                             prereqs="Knowledge of Python basics (Introduction to Python Workshop or equivalent)"
+                            openModal={openModal}
                         >
                             These days, lots of companies use buzzwords like
                             "artificial intelligence" and "machine learning" to
@@ -334,6 +352,7 @@ const Schedule = () => (
                         <ScheduleWorkshop
                             title="Basic 3D Modeling"
                             grades="7–9"
+                            openModal={openModal}
                         >
                             In this workshop, you will learn how to create your
                             own 3D object using the 3D modeling tool Blender.
@@ -359,14 +378,20 @@ const Schedule = () => (
             <ScheduleTable title="Sunday, January 10">
                 <ScheduleItem time="9:00 – 9:30 AM">Day 2 Opening</ScheduleItem>
                 <ScheduleItem time="9:30 AM – 12:00 PM">
-                    <ScheduleWorkshop title="Morning Worksession &amp; Mentorship">
+                    <ScheduleWorkshop
+                        title="Morning Worksession &amp; Mentorship"
+                        openModal={openModal}
+                    >
                         Time to work on your own project! We'll be there to give
                         you ideas and guidance along the way.
                     </ScheduleWorkshop>
                 </ScheduleItem>
                 <ScheduleItem time="12:00 – 1:00 PM">Lunch Break</ScheduleItem>
                 <ScheduleItem time="1:00 – 3:00 PM">
-                    <ScheduleWorkshop title="Afternoon Worksession &amp; Mentorship">
+                    <ScheduleWorkshop
+                        title="Afternoon Worksession &amp; Mentorship"
+                        openModal={openModal}
+                    >
                         Continue working on your own project! We'll be there to
                         give you ideas and guidance along the way.
                     </ScheduleWorkshop>
@@ -375,6 +400,45 @@ const Schedule = () => (
                     Presentations &amp; Closing Ceremony
                 </ScheduleItem>
             </ScheduleTable>
+        </div>
+    </div>
+);
+
+const GuestSpeaker = () => (
+    <div className="section" id="sponsors">
+        <div className="container">
+            <p className="title is-3 has-text-centered">
+                Guest Speaker: Mr. Howie Xu
+            </p>
+            <div className="columns is-vcentered">
+                <div className="column is-narrow">
+                    <img
+                        src={require("../assets/howiexu.jpeg")}
+                        width={200}
+                        className="mr-4"
+                    />
+                </div>
+                <div className="column">
+                    <p className="is-size-5">
+                        Howie Xu is VP of Machine Learning and AI at Zscaler and
+                        CEO of TrustPath, an AI startup that was acquired by
+                        Zscaler in 2018. Before that, he served as a senior
+                        executive at Cisco and VMware as well as an EIR of
+                        Greylock Partners. During Xu's decade long tenure at
+                        VMware, he founded and led the VMware’s networking and
+                        security unit and helped to lead the company to go from
+                        a tiny start-up to a $40B market cap public company. Xu
+                        is an independent board member at various hi-tech
+                        companies, a guest lecturer at Stanford University, and
+                        a frequent speaker at investment/technology conferences
+                        worldwide.
+                    </p>
+                </div>
+            </div>
+            <p className="has-text-centered">
+                He will be giving a talk after our opening ceremony on Friday,
+                January 8, 2021.
+            </p>
         </div>
     </div>
 );
@@ -427,14 +491,60 @@ const Footer = () => (
 );
 
 const Index = () => {
+    const [modal, setModal] = useState(null);
+
     return (
         <>
             <Banner />
             <About />
+            <GuestSpeaker />
             <FAQ />
-            <Schedule />
+            <Schedule openModal={setModal} />
             <Sponsors />
             <Footer />
+
+            {modal !== null && (
+                <div className="modal is-active">
+                    <div className="modal-background"></div>
+                    <div className="modal-card">
+                        <header className="modal-card-head">
+                            <p className="modal-card-title">{modal.title}</p>
+                            <button
+                                className="delete"
+                                aria-label="close"
+                                onClick={() => setModal(null)}
+                            ></button>
+                        </header>
+                        <section className="modal-card-body">
+                            <div className="content">
+                                <p>{modal.description}</p>
+                                {modal.grades && (
+                                    <p>
+                                        <b>Recommended Grade Levels:</b>{" "}
+                                        {modal.grades}
+                                    </p>
+                                )}
+                                {modal.prereqs && (
+                                    <p>
+                                        <b>Prerequisites:</b> {modal.prereqs}
+                                    </p>
+                                )}
+                            </div>
+                        </section>
+                        <footer
+                            className="modal-card-foot"
+                            style={{ justifyContent: "flex-end" }}
+                        >
+                            <button
+                                className="button"
+                                onClick={() => setModal(null)}
+                            >
+                                OK
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
