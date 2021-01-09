@@ -378,8 +378,10 @@ const Schedule = ({ openModal }) => (
             </ScheduleTable>
 
             <ScheduleTable title="Sunday, January 10">
-                <ScheduleItem time="9:00 – 9:30 AM">Day 2 Opening</ScheduleItem>
-                <ScheduleItem time="9:30 AM – 12:00 PM">
+                <ScheduleItem time="9:30 – 10:00 AM">
+                    Day 2 Opening
+                </ScheduleItem>
+                <ScheduleItem time="10:00 AM – 12:00 PM">
                     <ScheduleWorkshop
                         title="Morning Worksession &amp; Mentorship"
                         openModal={openModal}
