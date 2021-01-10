@@ -400,7 +400,7 @@ const Schedule = ({ openModal }) => (
                         give you ideas and guidance along the way.
                     </ScheduleWorkshop>
                 </ScheduleItem>
-                <ScheduleItem time="3:00 – 5:00 PM">
+                <ScheduleItem time="3:30 – 5:00 PM">
                     Presentations &amp; Closing Ceremony
                 </ScheduleItem>
             </ScheduleTable>
