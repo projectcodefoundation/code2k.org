@@ -1,53 +1,53 @@
 html,
 body {
-    background-color: #f7f8fc;
-    scroll-behavior: smooth;
+  background-color: #f7f8fc;
+  scroll-behavior: smooth;
 }
 
 #nprogress {
-    .bar {
-        background: $primary !important;
-    }
-    .peg {
-        box-shadow: 0 0 10px $primary, 0 0 5px $primary;
-    }
-    .spinner-icon {
-        border-top-color: $primary;
-        border-left-color: $primary;
-    }
+  .bar {
+    background: $primary !important;
+  }
+  .peg {
+    box-shadow: 0 0 10px $primary, 0 0 5px $primary;
+  }
+  .spinner-icon {
+    border-top-color: $primary;
+    border-left-color: $primary;
+  }
 }
 
 .title,
 .subtitle,
 .navbar-item {
-    font-family: "Space Mono";
+  font-family: "Space Mono";
 }
 
 .navbar-item {
-    height: 100%;
+  height: 100%;
 }
 
 .button,
 .has-shadow {
-    border: none;
-    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.1);
-    transition: 0.2s ease;
+  border: none;
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease;
 
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25);
-    }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25);
+  }
 }
 
 .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .is-transparent {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .popover .popover-content {
-    font-size: inherit;
+  font-size: inherit;
 }
