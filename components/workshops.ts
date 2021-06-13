@@ -25,7 +25,7 @@ export const workshops: Workshop[] = [
       "We recommend this class for students who have little to no prior programming experience.",
     ],
     dates: [
-      new Date("2021-06-12T17:00:00-0700"),
+      new Date("2021-06-27T17:00:00-0700"),
       new Date("2021-07-03T17:00:00-0700"),
       new Date("2021-07-11T17:00:00-0700"),
     ],
