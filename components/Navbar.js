@@ -3,22 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { ReactNode, useState } from "react";
 
-type NavbarItemProps = React.PropsWithChildren<{
-  href: string;
-  active: boolean;
-  className: string;
-  tag: string;
-}> &
-  JSX.IntrinsicElements["a"];
-
-const NavbarItem = ({
-  href,
-  children,
-  active,
-  className,
-  tag,
-  ...props
-}: NavbarItemProps) => {
+const NavbarItem = ({ href, children, active, className, tag, ...props }) => {
   const router = useRouter();
   let Tag = tag ?? href ? "a" : "div";
   let Wrapper = href ? Link : React.Fragment;
@@ -38,12 +23,7 @@ const NavbarItem = ({
   );
 };
 
-type NavbarProps = React.PropsWithChildren<{
-  brand: ReactNode;
-  className: string;
-}>;
-
-const Navbar = ({ children, brand, className, ...props }: NavbarProps) => {
+const Navbar = ({ children, brand, className, ...props }) => {
   const [isActive, setisActive] = useState(false);
 
   return (

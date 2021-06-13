@@ -30,7 +30,7 @@ const Banner = () => (
               </span>
             </a>
             <a
-              href="https://www.eventbrite.com/e/code2k-tickets-127225654357"
+              href="https://forms.gle/9cZzvemAFS5CwrJy9"
               className="button is-medium is-primary"
             >
               <span>Register</span>
@@ -39,7 +39,7 @@ const Banner = () => (
               </span>
             </a>
           </div>
-          <a href="https://forms.gle/zrQqRLa7YJq16PNN8">
+          <a href="https://forms.gle/QW4jUrRdg6HCMyTL9">
             Programming wizard? Sign up to mentor
           </a>
         </div>

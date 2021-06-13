@@ -1,22 +1,11 @@
 import {
-  faPython,
   faDiscord,
+  faPython,
   faUnity,
-  IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
-import { faGamepad, faCubes, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faCubes, faGamepad } from "@fortawesome/free-solid-svg-icons";
 
-export type Workshop = {
-  icon: IconDefinition;
-  title: string;
-  description: string | string[];
-  instructors: string[];
-  dates?: Date[];
-  prereqs?: string;
-  grades?: string;
-};
-
-export const workshops: Workshop[] = [
+export const workshops = [
   {
     icon: faPython,
     title: "Introduction to Python",
