@@ -99,7 +99,7 @@ const Workshops = ({ openModal, timeZone }) => (
       <p className="mb-5">
         Showing datetimes in your local timezone,{" "}
         <b>{format(new Date(), "zzz", { timeZone })}</b>. Scroll down for a full
-        calendar view.
+        calendar view. Click on each workshop for a description.
       </p>
 
       <div className="columns is-multiline is-centered">
