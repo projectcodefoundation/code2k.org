@@ -12,12 +12,12 @@ const Banner = () => (
     <div className="container">
       <div className="columns">
         <div className="column is-8-desktop is-offset-2-desktop has-text-centered">
-          <p className="title is-2 has-text-centered">Code2K Summer Session</p>
+          <p className="title is-2 has-text-centered">Code2K Summer Sessions</p>
           <p className="subtitle is-4 has-text-centered">June–July 2021</p>
           <p className="subtitle is-4 is-family-primary">
-            CS discovery for students around the world. Dive deep into a variety
-            of topics on computer programming and technologies through a series
-            of workshops held throughout the summer.
+            CS discovery workshops for students around the world. Dive deep into
+            a variety of topics on computer programming and technologies through
+            a series of sessions held throughout the summer.
           </p>
           <div className="buttons is-centered">
             <a
@@ -80,6 +80,12 @@ const WorkshopCard = ({
         {dates?.map((x) => (
           <p key={x}>{format(x, "MMMM d, h:mm a", { timeZone })}</p>
         )) ?? <p>TBA</p>}
+
+        {prereqs ? (
+          <p>Click to view prerequisites.</p>
+        ) : (
+          <p>No prerequisites.</p>
+        )}
       </div>
     </div>
   </div>
@@ -190,8 +196,6 @@ const Schedule = ({ openModal, timeZone }) => {
     }
   }
 
-  console.log(workshopsByDay);
-
   return (
     <div className="section" id="schedule">
       <div className="container">
@@ -199,15 +203,19 @@ const Schedule = ({ openModal, timeZone }) => {
 
         <table className="table is-bordered is-fullwidth is-transparent">
           <tbody>
-            {[...workshopsByDay.entries()].map(([date, workshops]) =>
+            {[...workshopsByDay.entries()].map(([, workshops]) =>
               workshops.map((x) => (
                 <ScheduleItem
-                  time={`${format(x.date, "MMMM d, y, h:mm a")} – ${format(
-                    add(x.date, { hours: 1 }),
-                    "h:mm a"
-                  )}`}
+                  time={`${format(x.date, "MMMM d, y, h:mm a", {
+                    timeZone,
+                  })} – ${format(add(x.date, { hours: 1 }), "h:mm a zzz", {
+                    timeZone,
+                  })}`}
                 >
-                  {x.title}
+                  <a onClick={() => openModal(x)}>
+                    {x.title}
+                    {x.prereqs && " (has prerequisites)"}
+                  </a>
                 </ScheduleItem>
               ))
             )}

@@ -67,7 +67,7 @@ export const workshops: Workshop[] = [
     dates: [new Date("2021-07-18T13:00:00-0700")],
     instructors: ["Oliver Ni", "Kyle He", "Franklin Wang"],
     prereqs:
-      "Do not need to know C#, but should be familiar with Java or similar languages.",
+      "Familiarity with languages like Java, C#, C++, and object-oriented programming.",
     grades: "7-10",
   },
   {
