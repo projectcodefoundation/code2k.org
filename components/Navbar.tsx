@@ -1,14 +1,29 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
-const NavbarItem = ({ href, children, active, className, tag, ...props }) => {
+type NavbarItemProps = React.PropsWithChildren<{
+  href: string;
+  active: boolean;
+  className: string;
+  tag: string;
+}> &
+  JSX.IntrinsicElements["a"];
+
+const NavbarItem = ({
+  href,
+  children,
+  active,
+  className,
+  tag,
+  ...props
+}: NavbarItemProps) => {
   const router = useRouter();
   let Tag = tag ?? href ? "a" : "div";
   let Wrapper = href ? Link : React.Fragment;
   return (
-    <Wrapper {...(href ? { href } : {})}>
+    <Wrapper href={href}>
       <Tag
         className={classNames({
           "navbar-item": true,
@@ -23,7 +38,12 @@ const NavbarItem = ({ href, children, active, className, tag, ...props }) => {
   );
 };
 
-const Navbar = ({ children, brand, className, ...props }) => {
+type NavbarProps = React.PropsWithChildren<{
+  brand: ReactNode;
+  className: string;
+}>;
+
+const Navbar = ({ children, brand, className, ...props }: NavbarProps) => {
   const [isActive, setisActive] = useState(false);
 
   return (

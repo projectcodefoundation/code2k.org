@@ -1,19 +1,15 @@
 import { DefaultSeo } from "next-seo";
+import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import MainLayout from "../layouts/MainLayout";
 import "../styles/main.scss";
-import Head from "next/head";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 const App = ({ Component, pageProps }) => {
-  const Layout = Component.layout || MainLayout;
-  const layoutProps = Component.layoutProps || {};
-
   return (
     <>
       <DefaultSeo
@@ -48,9 +44,8 @@ const App = ({ Component, pageProps }) => {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <Layout {...layoutProps}>
-        <Component {...pageProps} />
-      </Layout>
+
+      <Component {...pageProps} />
     </>
   );
 };
