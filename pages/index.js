@@ -15,9 +15,9 @@ const Banner = () => (
           <p className="title is-2 has-text-centered">Code2K Summer Sessions</p>
           <p className="subtitle is-4 has-text-centered">June–July 2021</p>
           <p className="subtitle is-4 is-family-primary">
-            CS discovery workshops for students around the world. Dive deep into
-            a variety of topics on computer programming and technologies through
-            a series of sessions held throughout the summer.
+            A series of CS discovery workshops for students around the world.
+            Dive deep into a variety of topics on computer programming and
+            technologies through our sessions held throughout the summer.
           </p>
           <div className="buttons is-centered">
             <a
