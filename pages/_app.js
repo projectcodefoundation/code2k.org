@@ -14,7 +14,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <DefaultSeo
         title="Code2K"
-        description="Code2K is a weekend of CS discovery. It's a self-directed hackathon for students all around the world. No matter how experienced you are, join us this winter to learn something new, create your very own project, and dive into the fascinating world of programming."
+        description="CS discovery workshops for students around the world. Dive deep into a variety of topics on computer programming and technologies through a series of sessions held throughout the summer."
       />
       <Head>
         <link
