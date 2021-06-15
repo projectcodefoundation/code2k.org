@@ -73,18 +73,25 @@ const WorkshopCard = ({
         })
       }
     >
-      <div className="card-content has-text-centered">
+      <div
+        className="card-content is-flex is-flex-direction-column is-align-items-center"
+        style={{ height: "100%" }}
+      >
         <FontAwesomeIcon icon={icon} size="3x" className="mb-5" />
         <p className="title is-4">{title}</p>
+
+        <div className="spacer" style={{ flex: 1 }} />
 
         {dates?.map((x) => (
           <p key={x}>{format(x, "MMMM d, h:mm a", { timeZone })}</p>
         )) ?? <p>TBA</p>}
 
         {prereqs ? (
-          <p>Click to view prerequisites.</p>
+          <p className="has-text-link">Click to view prerequisites.</p>
         ) : (
-          <p>No prerequisites.</p>
+          dates.length > 0 && (
+            <p className="has-text-grey-light">No prerequisites.</p>
+          )
         )}
       </div>
     </div>
@@ -206,6 +213,7 @@ const Schedule = ({ openModal, timeZone }) => {
             {[...workshopsByDay.entries()].map(([, workshops]) =>
               workshops.map((x) => (
                 <ScheduleItem
+                  key={x.title}
                   time={`${format(x.date, "MMMM d, y, h:mm a", {
                     timeZone,
                   })} – ${format(add(x.date, { hours: 2 }), "h:mm a zzz", {

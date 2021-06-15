@@ -1,4 +1,5 @@
 import {
+  faAppStoreIos,
   faDiscord,
   faPython,
   faUnity,
@@ -42,7 +43,10 @@ export const workshops = [
       "Already know Python and want to create something cool? In this workshop, you'll learn how to use the discord.py library to make bots for the chat platform Discord. We'll start with the basics and progress to make a simple game. You’ll also learn how to use the bot to create channels, kick or ban members, and more. In addition, you will be given a brief introduction on some good practices in making bots.",
       "Afterwards, our mentors will guide you to make your very own Discord bot that can do whatever you want, as well as help you host the bot 24/7 for your own use.",
     ],
-    dates: [new Date("2021-07-24T17:00:00-0700")],
+    dates: [
+      new Date("2021-07-24T17:00:00-0700"),
+      new Date("2021-07-31T17:00:00-0700"),
+    ],
     instructors: ["Oliver Ni", "Kyle He"],
     prereqs:
       "Learned Python before the event; know basics like data types, operators, functions, imports; comfortable with working on projects",
@@ -75,5 +79,19 @@ export const workshops = [
     instructors: ["Raymond Shao"],
     prereqs: "Download Blender at https://www.blender.org/download/",
     grades: "7–9",
+  },
+  {
+    icon: faAppStoreIos,
+    title: "iOS App Development",
+    description:
+      "Learn how to create a pomodoro timer and get introduced to the world of iOS app creation! By the end of the course, students will have created their own pomodoro timer app to help them with their studies. They will have gained a base knowledge that will help them towards creating their own iOS apps.",
+    dates: [
+      new Date("2021-07-03T13:00:00-0700"),
+      new Date("2021-07-17T13:00:00-0700"),
+    ],
+    instructors: ["Jeremy Tow", "Adelina"],
+    prereqs:
+      "Have a Mac with the latest version of Xcode downloaded, basic knowledge of programming in any language.",
+    grades: "7–10",
   },
 ];
