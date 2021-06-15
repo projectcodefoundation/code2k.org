@@ -208,7 +208,7 @@ const Schedule = ({ openModal, timeZone }) => {
                 <ScheduleItem
                   time={`${format(x.date, "MMMM d, y, h:mm a", {
                     timeZone,
-                  })} – ${format(add(x.date, { hours: 1 }), "h:mm a zzz", {
+                  })} – ${format(add(x.date, { hours: 2 }), "h:mm a zzz", {
                     timeZone,
                   })}`}
                 >
