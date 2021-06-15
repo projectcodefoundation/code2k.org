@@ -1,7 +1,7 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faChevronRight, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { add, startOfDay } from "date-fns";
+import { add, compareAsc, startOfDay } from "date-fns";
 import { format } from "date-fns-tz";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
@@ -194,14 +194,10 @@ const ScheduleItem = ({ time, first, second, children }) => (
 );
 
 const Schedule = ({ openModal, timeZone }) => {
-  const workshopsByDay = new Map();
-  for (const workshop of workshops) {
-    for (const date of workshop.dates ?? []) {
-      const day = startOfDay(date);
-      if (!workshopsByDay.has(day)) workshopsByDay.set(day, []);
-      workshopsByDay.get(day).push({ ...workshop, date });
-    }
-  }
+  const dispWorkshops = workshops.flatMap(
+    (x) => x.dates?.map((date) => ({ ...x, date })) ?? []
+  );
+  dispWorkshops.sort((a, b) => compareAsc(a.date, b.date));
 
   return (
     <div className="section" id="schedule">
@@ -210,23 +206,21 @@ const Schedule = ({ openModal, timeZone }) => {
 
         <table className="table is-bordered is-fullwidth is-transparent">
           <tbody>
-            {[...workshopsByDay.entries()].map(([, workshops]) =>
-              workshops.map((x) => (
-                <ScheduleItem
-                  key={x.title}
-                  time={`${format(x.date, "MMMM d, y, h:mm a", {
-                    timeZone,
-                  })} – ${format(add(x.date, { hours: 2 }), "h:mm a zzz", {
-                    timeZone,
-                  })}`}
-                >
-                  <a onClick={() => openModal(x)}>
-                    {x.title}
-                    {x.prereqs && " (has prerequisites)"}
-                  </a>
-                </ScheduleItem>
-              ))
-            )}
+            {dispWorkshops.map((x) => (
+              <ScheduleItem
+                key={x.title + x.date}
+                time={`${format(x.date, "MMMM d, y, h:mm a", {
+                  timeZone,
+                })} – ${format(add(x.date, { hours: 2 }), "h:mm a zzz", {
+                  timeZone,
+                })}`}
+              >
+                <a onClick={() => openModal(x)}>
+                  {x.title}
+                  {x.prereqs && " (has prerequisites)"}
+                </a>
+              </ScheduleItem>
+            ))}
           </tbody>
         </table>
       </div>
