@@ -87,10 +87,10 @@ const WorkshopCard = ({
         )) ?? <p>TBA</p>}
 
         {prereqs ? (
-          <p className="has-text-link">Click to view prerequisites.</p>
+          <p className="has-text-link mt-2">Has prerequisites.</p>
         ) : (
           dates.length > 0 && (
-            <p className="has-text-grey-light">No prerequisites.</p>
+            <p className="has-text-grey-light mt-2">Click to view info.</p>
           )
         )}
       </div>

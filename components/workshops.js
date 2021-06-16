@@ -4,7 +4,12 @@ import {
   faPython,
   faUnity,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCode, faCubes, faGamepad } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBrain,
+  faCode,
+  faCubes,
+  faGamepad,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const workshops = [
   {
@@ -72,15 +77,6 @@ export const workshops = [
     instructors: ["Riley Kong", "Michael Song", "Jocelyn Tao"],
   },
   {
-    icon: faCubes,
-    title: "3D Modeling",
-    description:
-      "In this workshop, you will learn how to create your own 3D object using the 3D modeling tools TinkerCAD and Blender. These models may also be used in animations or games. During this workshop, we will walk through some basic features of various modelling programs. Afterwards, our mentors will help you through the process of making your own model!",
-    instructors: ["Raymond Shao"],
-    prereqs: "Download Blender at https://www.blender.org/download/",
-    grades: "7–9",
-  },
-  {
     icon: faAppStoreIos,
     title: "iOS App Development",
     description:
@@ -92,6 +88,24 @@ export const workshops = [
     instructors: ["Jeremy Tow", "Adelina"],
     prereqs:
       "Have a Mac with the latest version of Xcode downloaded, basic knowledge of programming in any language.",
+    grades: "7–10",
+  },
+  {
+    icon: faCubes,
+    title: "3D Modeling",
+    description:
+      "In this workshop, you will learn how to create your own 3D object using the 3D modeling tools TinkerCAD and Blender. These models may also be used in animations or games. During this workshop, we will walk through some basic features of various modelling programs. Afterwards, our mentors will help you through the process of making your own model!",
+    instructors: ["Raymond Shao"],
+    prereqs: "Download Blender at https://www.blender.org/download/",
+    grades: "7–9",
+  },
+  {
+    icon: faBrain,
+    title: "Machine Learning with Teachable Machine",
+    description:
+      "These days, lots of companies use buzzwords like “artificial intelligence” and “machine learning” to promote themselves, but have you ever wondered what exactly is machine learning? In this workshop, you will harness the power of machine learning by using Teachable Machine to recognize images, sound, and more! During this workshop, we will walk you through an example app to get you familiar with how machine learning works. Afterwards, our mentors will help guide you through making your own unique application of machine learning!",
+    instructors: ["Franklin Wang"],
+    prereqs: "Python knowledge or Intro to Python",
     grades: "7–10",
   },
 ];
