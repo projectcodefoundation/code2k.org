@@ -95,6 +95,7 @@ export const workshops = [
     title: "3D Modeling",
     description:
       "In this workshop, you will learn how to create your own 3D object using the 3D modeling tools TinkerCAD and Blender. These models may also be used in animations or games. During this workshop, we will walk through some basic features of various modelling programs. Afterwards, our mentors will help you through the process of making your own model!",
+    dates: [new Date("2021-08-07T17:00:00-0700")],
     instructors: ["Raymond Shao"],
     prereqs: "Download Blender at https://www.blender.org/download/",
     grades: "7–9",
