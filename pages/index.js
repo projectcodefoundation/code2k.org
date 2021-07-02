@@ -1,11 +1,18 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faChevronRight, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { add, compareAsc, startOfDay } from "date-fns";
+import { add, compareAsc, isAfter } from "date-fns";
 import { format } from "date-fns-tz";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { workshops } from "../components/workshops";
+
+function* zip(...arrays) {
+  let i = 0;
+  while (i < Math.min(...arrays.map((arr) => arr.length))) {
+    yield arrays.map((arr, j) => arr[j < arrays.length - 1 ? i : i++]);
+  }
+}
 
 const Banner = () => (
   <div className="section">
@@ -29,10 +36,7 @@ const Banner = () => (
                 <FontAwesomeIcon icon={faDiscord} />
               </span>
             </a>
-            <a
-              href="https://forms.gle/9cZzvemAFS5CwrJy9"
-              className="button is-medium is-primary"
-            >
+            <a href="#schedule" className="button is-medium is-primary">
               <span>Register</span>
               <span className="icon">
                 <FontAwesomeIcon icon={faChevronRight} />
@@ -52,6 +56,7 @@ const WorkshopCard = ({
   icon,
   title,
   dates,
+  links,
   grades,
   prereqs,
   description,
@@ -70,6 +75,9 @@ const WorkshopCard = ({
           instructors,
           prereqs,
           description,
+          dates,
+          links,
+          timeZone,
         })
       }
     >
@@ -194,10 +202,16 @@ const ScheduleItem = ({ time, first, second, children }) => (
 );
 
 const Schedule = ({ openModal, timeZone }) => {
-  const dispWorkshops = workshops.flatMap(
-    (x) => x.dates?.map((date) => ({ ...x, date })) ?? []
+  const dispWorkshops = workshops.flatMap((x) =>
+    [...zip(x.dates ?? [], x.links ?? [])].map(([date, link]) => ({
+      ...x,
+      date,
+      link,
+    }))
   );
   dispWorkshops.sort((a, b) => compareAsc(a.date, b.date));
+
+  const now = new Date();
 
   return (
     <div className="section" id="schedule">
@@ -206,21 +220,30 @@ const Schedule = ({ openModal, timeZone }) => {
 
         <table className="table is-bordered is-fullwidth is-transparent">
           <tbody>
-            {dispWorkshops.map((x) => (
-              <ScheduleItem
-                key={x.title + x.date}
-                time={`${format(x.date, "MMMM d, y, h:mm a", {
-                  timeZone,
-                })} – ${format(add(x.date, { hours: 2 }), "h:mm a zzz", {
-                  timeZone,
-                })}`}
-              >
-                <a onClick={() => openModal(x)}>
-                  {x.title}
-                  {x.prereqs && " (has prerequisites)"}
-                </a>
-              </ScheduleItem>
-            ))}
+            {dispWorkshops.map((x) => {
+              const end = add(x.date, { hours: 2 });
+              return (
+                <ScheduleItem
+                  key={x.title + x.date}
+                  time={
+                    <>
+                      {format(x.date, "MMMM d, y, h:mm a", { timeZone })}
+                      {" – "}
+                      {format(end, "h:mm a zzz", { timeZone })}
+                    </>
+                  }
+                  first={
+                    <a onClick={() => openModal({ ...x, timeZone })}>
+                      {x.title}
+                      {x.prereqs && " (has prerequisites)"}
+                    </a>
+                  }
+                  second={
+                    isAfter(end, now) && <a href={x.link}>Registration Link</a>
+                  }
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -273,8 +296,11 @@ const WorkshopModal = ({
   title,
   description,
   instructors,
+  dates,
+  links,
   grades,
   prereqs,
+  timeZone,
   setModal,
 }) => {
   const desc = typeof description === "string" ? [description] : description;
@@ -302,6 +328,20 @@ const WorkshopModal = ({
                 <b>Prerequisites:</b> {prereqs}
               </p>
             )}
+
+            <p className="title is-5 mt-5">Dates</p>
+            <ul>
+              {[...zip(dates, links)].map(([date, link]) => (
+                <li key={date.toISOString()}>
+                  {format(date, "MMMM d, y, h:mm a", { timeZone })}
+                  {" – "}
+                  {format(add(date, { hours: 2 }), "h:mm a zzz", {
+                    timeZone,
+                  })}{" "}
+                  (<a href={link}>Register</a>)
+                </li>
+              ))}
+            </ul>
 
             <p className="title is-5 mt-5">Instructors</p>
             <ul>
