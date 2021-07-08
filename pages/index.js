@@ -216,7 +216,9 @@ const Schedule = ({ openModal, timeZone }) => {
   return (
     <div className="section" id="schedule">
       <div className="container">
-        <p className="title is-3 has-text-centered">Schedule</p>
+        <p className="title is-3 has-text-centered">
+          Schedule &amp; Registration
+        </p>
 
         <table className="table is-bordered is-fullwidth is-transparent">
           <tbody>
@@ -235,11 +237,20 @@ const Schedule = ({ openModal, timeZone }) => {
                   first={
                     <a onClick={() => openModal({ ...x, timeZone })}>
                       {x.title}
-                      {x.prereqs && " (has prerequisites)"}
+                      {x.prereqs && (
+                        <span className="has-text-danger">
+                          {" "}
+                          (has prerequisites)
+                        </span>
+                      )}
                     </a>
                   }
                   second={
-                    isAfter(end, now) && <a href={x.link}>Registration Link</a>
+                    isAfter(end, now) && (
+                      <a href={x.link}>
+                        <b>Registration Link</b>
+                      </a>
+                    )
                   }
                 />
               );
@@ -396,7 +407,7 @@ const Index = () => {
       >
         <Navbar.Item href="#workshops">Workshops</Navbar.Item>
         <Navbar.Item href="#faq">FAQ</Navbar.Item>
-        <Navbar.Item href="#schedule">Schedule</Navbar.Item>
+        <Navbar.Item href="#schedule">Schedule &amp; Registration</Navbar.Item>
         <Navbar.Item href="#sponsors">Sponsors</Navbar.Item>
       </Navbar>
 
