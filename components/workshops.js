@@ -57,7 +57,7 @@ export const workshops = [
       "Afterwards, our mentors will guide you to make your very own Discord bot that can do whatever you want, as well as help you host the bot 24/7 for your own use.",
     ],
     dates: [
-      new Date("2021-07-24T17:00:00-0700"),
+      new Date("2021-07-25T17:00:00-0700"),
       new Date("2021-07-31T17:00:00-0700"),
     ],
     links: [
