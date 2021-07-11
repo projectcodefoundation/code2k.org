@@ -130,7 +130,7 @@ export const workshops = [
     title: "Machine Learning with Teachable Machine",
     description:
       "These days, lots of companies use buzzwords like “artificial intelligence” and “machine learning” to promote themselves, but have you ever wondered what exactly is machine learning? In this workshop, you will harness the power of machine learning by using Teachable Machine to recognize images, sound, and more! During this workshop, we will walk you through an example app to get you familiar with how machine learning works. Afterwards, our mentors will help guide you through making your own unique application of machine learning!",
-    dates: [new Date("2021-07-31T17:00:00-0700")],
+    dates: [new Date("2021-07-30T17:00:00-0700")],
     links: [
       "https://us02web.zoom.us/meeting/register/tZUufuusqj8oHda9H5FKlDwwCye8UCVyIOJh",
     ],
