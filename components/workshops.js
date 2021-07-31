@@ -41,10 +41,8 @@ export const workshops = [
     title: "Making Simple Games with Pygame",
     description:
       "Finished learning basic Python and want to do more? In this course, we'll explore a library called Pygame, and how to create graphical user interfaces. We'll use Pygame to create more complicated games using graphics, movement, keyboard controls, mouse controls, and more. By the end of the course, students will have created a full-fledged, working game of their own.",
-    dates: [new Date("2021-07-18T17:00:00-0700")],
-    links: [
-      "https://us02web.zoom.us/meeting/register/tZUldumuqTopHtKAILcCWXcJaVCRMy9xh1Vm",
-    ],
+    dates: [],
+    links: [],
     instructors: ["Oliver Ni", "Riley Kong", "Franklin Wang", "Jennifer Song"],
     prereqs: "Knowledge of Python, or Intro to Python",
     grades: "6-9",
